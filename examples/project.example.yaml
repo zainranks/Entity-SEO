@@ -1,0 +1,50 @@
+project:
+  name: Cairo Dental Growth
+  domain: https://example.com
+  mode: new_site
+  languages: [ar, en]
+  target_countries: [EG]
+
+business:
+  brand_name: Example Dental Clinic
+  business_type: MedicalClinic
+  locations:
+    - city: Cairo
+      country: Egypt
+  services:
+    - Dental implants
+    - Teeth whitening
+    - Root canal treatment
+  products: []
+  audiences:
+    - Adults seeking private dental treatment in Cairo
+  conversion_goals:
+    - Book an appointment
+    - Request a consultation
+
+research:
+  seed_topics:
+    - dental implants
+    - teeth whitening
+    - root canal treatment
+  known_competitors: []
+  discover_competitors: true
+  max_results_per_query: 10
+  max_competitor_pages_per_topic: 5
+
+content:
+  tone: clear, medically cautious, commercially useful
+  auto_publish: false
+  create_drafts: true
+  regulated_topic: true
+  required_human_review: [medical, legal, pricing]
+
+scoring_weights:
+  business_relevance: 1.4
+  conversion_value: 1.3
+  search_demand_proxy: 1.0
+  competitor_coverage: 0.8
+  semantic_centrality: 1.0
+  evidence_quality: 1.2
+  differentiation_potential: 0.9
+  compliance_risk: -1.2

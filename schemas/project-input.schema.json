@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["project", "business", "research", "content"],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["name", "mode", "languages", "target_countries"],
+      "properties": {
+        "name": {"type": "string", "minLength": 2},
+        "domain": {"type": ["string", "null"], "format": "uri"},
+        "mode": {"enum": ["new_site", "new_section", "new_content"]},
+        "languages": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "target_countries": {"type": "array", "minItems": 1, "items": {"type": "string"}}
+      }
+    },
+    "business": {
+      "type": "object",
+      "required": ["brand_name", "business_type", "services", "audiences", "conversion_goals"],
+      "properties": {
+        "brand_name": {"type": "string"},
+        "business_type": {"type": "string"},
+        "services": {"type": "array", "items": {"type": "string"}},
+        "products": {"type": "array", "items": {"type": "string"}},
+        "audiences": {"type": "array", "items": {"type": "string"}},
+        "conversion_goals": {"type": "array", "items": {"type": "string"}},
+        "locations": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "research": {
+      "type": "object",
+      "required": ["seed_topics"],
+      "properties": {
+        "seed_topics": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "known_competitors": {"type": "array", "items": {"type": "string"}},
+        "discover_competitors": {"type": "boolean"},
+        "max_results_per_query": {"type": "integer", "minimum": 1, "maximum": 100},
+        "max_competitor_pages_per_topic": {"type": "integer", "minimum": 1, "maximum": 30}
+      }
+    },
+    "content": {
+      "type": "object",
+      "required": ["auto_publish", "create_drafts"],
+      "properties": {
+        "tone": {"type": "string"},
+        "auto_publish": {"const": false},
+        "create_drafts": {"type": "boolean"},
+        "regulated_topic": {"type": "boolean"},
+        "required_human_review": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "scoring_weights": {"type": "object", "additionalProperties": {"type": "number"}}
+  }
+}
